@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Syntax check
+        run: python -m py_compile mining_v0/*.py
+
+      - name: Unit and offline integration tests
+        working-directory: mining_v0
+        run: python -m unittest discover -v -p 'test_*.py'
+
+      - name: Verify no machine-specific paths
+        shell: bash
+        run: |
+          if grep -RInE '/data/|/home/|/root/|[A-Za-z]:\\\\' \
+              --include='*.py' mining_v0; then
+            echo "Machine-specific path found"
+            exit 1
+          fi

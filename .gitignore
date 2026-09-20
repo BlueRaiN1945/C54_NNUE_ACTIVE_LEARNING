@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Research databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Neural-network / training artifacts
+*.nnue
+*.binpack
+*.pt
+*.pth
+*.ckpt
+
+# Logs / generated output
+*.log
+*.tmp
+
+# Local/private validation material
+private_validation/
+
+# Local external artifacts
+artifacts/
+engines/
+networks/

@@ -1,0 +1,217 @@
+==============================================================================
+V0 TRAIN25 REGRESSION REPORT
+==============================================================================
+V0_TRAIN25_001: run_id=2
+V0_TRAIN25_002: run_id=3
+
+==============================================================================
+SUMMARY: V0_TRAIN25_001
+==============================================================================
+positions       : 25
+search_jobs     : 123
+search_results  : 173
+static_evals    : 122
+mining_metrics  : 25
+position_classes: 30
+negative margins: 1
+
+primary classes:
+  AGREEMENT: 14
+  MOVE_DISAGREEMENT: 11
+
+==============================================================================
+SUMMARY: V0_TRAIN25_002
+==============================================================================
+positions       : 25
+search_jobs     : 130
+search_results  : 180
+static_evals    : 122
+mining_metrics  : 25
+position_classes: 30
+negative margins: 0
+
+primary classes:
+  AGREEMENT: 14
+  MOVE_DISAGREEMENT: 11
+
+==============================================================================
+RAW AUDIT: V0_TRAIN25_001
+==============================================================================
+candidate multipv jobs     : 25
+bad rank sets              : 0
+mixed depths               : 19
+non-exact snapshots        : 0
+negative raw margins       : 1
+missing candidate probes   : 1
+bestmove/rank1 mismatches  : 1
+
+negative raw margins:
+  (12, 'c3b5', 115, 'c3b5', 143, -28)
+
+missing candidate probes:
+  (7, 'd6e5')
+
+bestmove/rank1 mismatches:
+  (7, 'd6e5', 'b6b3', 14)
+
+==============================================================================
+RAW AUDIT: V0_TRAIN25_002
+==============================================================================
+candidate multipv jobs     : 25
+bad rank sets              : 0
+mixed depths               : 0
+non-exact snapshots        : 0
+negative raw margins       : 0
+missing candidate probes   : 0
+bestmove/rank1 mismatches  : 6
+
+bestmove/rank1 mismatches:
+  (4, 'c4c5', 'c4b5', 11)
+  (5, 'b3b4', 'd1g4', 12)
+  (7, 'd6e5', 'b6b3', 14)
+  (12, 'c3b5', 'g4f5', 11)
+  (19, 'a1a8', 'f6f7', 13)
+  (21, 'a8b8', 'a8a3', 12)
+
+==============================================================================
+POSITION SET COMPARISON
+==============================================================================
+positions only in _001: []
+positions only in _002: []
+shared positions      : 25
+
+==============================================================================
+METRIC DIFFERENCES PER POSITION
+==============================================================================
+
+position_id=3
+  candidate_margin_internal
+    _001: 20.0
+    _002: 19.0
+
+position_id=4
+  rank_error
+    _001: 0.0
+    _002: 1.0
+
+position_id=5
+  rank_error
+    _001: 0.0
+    _002: 1.0
+
+position_id=6
+  candidate_margin_internal
+    _001: 0.0
+    _002: 8.0
+
+position_id=7
+  teacher_regret_internal
+    _001: None
+    _002: 4.0
+  teacher_regret_wdl_expected
+    _001: None
+    _002: 0.0034999999999999476
+  deep_teacher_preference
+    _001: None
+    _002: 4.0
+
+position_id=11
+  candidate_margin_internal
+    _001: 22.0
+    _002: 11.0
+
+position_id=12
+  candidate_margin_internal
+    _001: -28.0
+    _002: 49.0
+  rank_error
+    _001: 0.0
+    _002: 1.0
+
+position_id=13
+  candidate_margin_internal
+    _001: 4.0
+    _002: 2.0
+  rank_error
+    _001: 2.0
+    _002: 1.0
+
+position_id=14
+  candidate_margin_internal
+    _001: 13.0
+    _002: 18.0
+
+position_id=15
+  candidate_margin_internal
+    _001: 9.0
+    _002: 15.0
+
+position_id=16
+  candidate_margin_internal
+    _001: 26.0
+    _002: 24.0
+
+position_id=18
+  candidate_margin_internal
+    _001: 30.0
+    _002: 17.0
+
+position_id=19
+  candidate_margin_internal
+    _001: 0.0
+    _002: 1.0
+  rank_error
+    _001: 1.0
+    _002: 2.0
+
+position_id=21
+  candidate_margin_internal
+    _001: 3.0
+    _002: 0.0
+
+position_id=23
+  candidate_margin_internal
+    _001: 340.0
+    _002: 342.0
+
+position_id=26
+  candidate_margin_internal
+    _001: 18.0
+    _002: 15.0
+
+positions with metric differences: 16
+
+==============================================================================
+TEACHER PROBE SET DIFFERENCES
+==============================================================================
+
+position_id=5
+  added in _002  : ['d1g4']
+
+position_id=7
+  added in _002  : ['d6e5']
+
+position_id=11
+  added in _002  : ['d3f4']
+
+position_id=12
+  added in _002  : ['g4f5']
+
+position_id=14
+  added in _002  : ['c1e3']
+
+position_id=19
+  added in _002  : ['f6f7']
+
+position_id=26
+  added in _002  : ['e2e3']
+
+positions with changed probe sets: 7
+
+==============================================================================
+FINAL DATABASE CHECK
+==============================================================================
+integrity_check: ok
+foreign_key_errors: 0
+
+REPORT COMPLETE
