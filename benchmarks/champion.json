@@ -1,0 +1,12 @@
+{
+  "name": "LR_4e-4_BS4096_131K",
+  "status": "roundtrip_verified",
+  "fixed_val_loss": 0.0027694174,
+  "official_sf_loss": 0.0067736587,
+  "original_ola_c54_loss": 0.0067599019,
+  "batch_size": 4096,
+  "learning_rate": 0.0004,
+  "epoch_size": 131072,
+  "seed": 42,
+  "nnue_sha256": "81c501e9df1cd036a0c37fa2fc96864a6a25e854dbedf32a54ebb803f14391fc"
+}

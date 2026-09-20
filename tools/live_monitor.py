@@ -274,9 +274,11 @@ def render(root, args):
     else:
         print("GPU        : unavailable")
 
+    print(f"Official SF      : {args.official_loss:.10f}")
+    print(f"Original OLA/C54 : {args.original_loss:.10f}")
     print(
-        f"Official   : {args.official_loss:.10f} | "
-        f"{args.reference_label}: {args.reference_loss:.10f}"
+        f"Champion         : {args.champion_loss:.10f} "
+        f"[{args.champion_label}]"
     )
 
     print()
@@ -288,7 +290,8 @@ def render(root, args):
         f"{'Int.Val':>11}"
         f"{'Fixed VAL':>13}"
         f"{'vs Off':>11}"
-        f"{'vs Ref':>11}"
+        f"{'vs Orig':>11}"
+        f"{'vs Champ':>11}"
         f"{'ETA':>9}"
     )
     print("-" * 118)
@@ -323,7 +326,8 @@ def render(root, args):
             f"{fmt_float(r['val_epoch_loss'], 5):>11}"
             f"{fmt_float(fixed, 10):>13}"
             f"{fmt_delta(fixed, args.official_loss):>11}"
-            f"{fmt_delta(fixed, args.reference_loss):>11}"
+            f"{fmt_delta(fixed, args.original_loss):>11}"
+            f"{fmt_delta(fixed, args.champion_loss):>11}"
             f"{eta:>9}"
         )
 
@@ -417,9 +421,27 @@ def main():
     )
 
     parser.add_argument(
+        "--original-loss",
+        type=float,
+        default=0.0067599019,
+    )
+
+    parser.add_argument(
+        "--champion-loss",
+        type=float,
+        default=0.0027694174,
+    )
+
+    parser.add_argument(
+        "--champion-label",
+        default="LR_4e-4 / BS4096 / 131K / roundtrip verified",
+    )
+
+    parser.add_argument(
         "--reference-loss",
         type=float,
         default=0.0067599019,
+        help="Deprecated compatibility option.",
     )
 
     parser.add_argument(
