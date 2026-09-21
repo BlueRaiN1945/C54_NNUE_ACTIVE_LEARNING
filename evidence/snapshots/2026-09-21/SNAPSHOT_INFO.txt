@@ -1,0 +1,27 @@
+﻿snapshot_utc=2026-09-21T12:44:06+00:00
+repository=/workspace/nnue-pytorch
+overnight_run=/data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1
+orchestrator=/data/c54_overnight_iterative.py
+
+=== REPOSITORY SIZE ===
+26M	/workspace/nnue-pytorch
+
+=== ORIGINAL RUN SIZE ===
+197G	/data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1
+
+=== GIT ===
+master
+9f72946529c4187d3679014036cd22c3be419716
+?? docker
+
+=== PYTHON ===
+Python 3.12.3
+
+=== ACTIVE RELEVANT PROCESSES ===
+nnue_us+       1       0  0 Sep20 pts/0    00:00:00 bash
+root      383304       1  0 10:19 ?        00:00:50 /usr/bin/python -u /data/c54_overnight_iterative.py
+root      444324  383304  1 12:41 ?        00:00:01 /usr/bin/python /data/BASELINE_2026/TRAINING_425K/MINING_V1/C54_NNUE_ACTIVE_LEARNING/mining_v0/miner_train_batch.py --stockfish /data/STOCKFISH_LINUX_17a6c8f1/src/stockfish --official-net /data/STOCKFISH_LINUX_17a6c8f1/src/nn-134a887f4c8f.nnue --candidate-net /data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1/GENERATIONS/GEN_0086/challenger.nnue --db /data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1/GENERATIONS/GEN_0087/mining.sqlite --batch /data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1/GENERATIONS/GEN_0087/MINING_POOL.tsv --run-tag C54_GEN_0087 --expected-batch-sha 11a5ad608158f53fe6e259da5456ff265a72a964b6dbc3b91cc47ea510bf4605
+
+=== GPU ===
+GPU 0: NVIDIA GeForce RTX 4070 Ti SUPER (UUID: REDACTED)
+

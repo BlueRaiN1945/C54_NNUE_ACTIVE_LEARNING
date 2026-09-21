@@ -1,0 +1,4 @@
+﻿repository=https://github.com/official-stockfish/nnue-pytorch.git
+branch=master
+commit=9f72946529c4187d3679014036cd22c3be419716
+snapshot_date=2026-09-21

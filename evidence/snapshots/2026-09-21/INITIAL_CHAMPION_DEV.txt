@@ -1,0 +1,31 @@
+=== OFFICIAL BASE VALIDATION ===
+Model: /data/BASELINE_2026/NNUE_TUNING/C54_ITERATIVE_OVERNIGHT_V1/CHAMPIONS/V1/C54_CHAMPION_V1.pt
+Data : /data/BASELINE_2026/TRAINING_425K/SPLIT_V1/VAL_05.binpack
+Device: NVIDIA GeForce RTX 4070 Ti SUPER
+Batch size: 8192
+Batches: 5
+Positions: 40960
+
+Feature set: Full_Threats+PP_3Wide+HalfKAv2_hm
+Lambda: 1.0
+Skip config: DataloaderSkipConfig(filtered=False, wld_filtered=False, random_fen_skipping=0, early_fen_skipping=-1, soft_early_fen_skipping=0, simple_eval_skipping=-1, param_index=0, pc_y0=0.0, pc_y1=0.4, pc_y2=1.0, pc_y3=1.0, pc_y4=0.75, ply_x1=0.0, ply_y1=0.1, ply_x2=6.0, ply_y2=0.15, ply_x3=10.0, ply_y3=0.25, ply_x4=18.0, ply_y4=0.75)
+
+Batch 1/5: loss=0.00708358 score_min=-1531 score_max=1580
+Batch 2/5: loss=0.00678301 score_min=-1251 score_max=1220
+Batch 3/5: loss=0.00679791 score_min=-2051 score_max=1318
+Batch 4/5: loss=0.00662050 score_min=-1726 score_max=1473
+Batch 5/5: loss=0.00654698 score_min=-1581 score_max=1193
+
+============================================
+OFFICIAL BASE RESULT
+============================================
+Positions evaluated : 40960
+Mean validation loss: 0.0067663943
+Elapsed seconds     : 0.522
+Positions/sec       : 78541.3
+============================================
+Exception ignored in: <function TrainingDataProvider.__del__ at 0x79d9315a2ca0>
+Traceback (most recent call last):
+  File "/workspace/nnue-pytorch/data_loader/dataset.py", line 174, in __del__
+  File "/workspace/nnue-pytorch/data_loader/stream.py", line 95, in destroy_sparse_batch_stream
+AttributeError: 'NoneType' object has no attribute 'dll'
