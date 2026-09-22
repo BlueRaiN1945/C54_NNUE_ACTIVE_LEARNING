@@ -1,0 +1,98 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "claimed_draws": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "claimed_losses": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "claimed_wins": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "engine_stdout_log_ref": {
+      "format": "relative-neutral-path",
+      "minLength": 1,
+      "type": "string"
+    },
+    "games": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "black_role": {
+            "enum": [
+              "candidate",
+              "opponent"
+            ],
+            "type": "string"
+          },
+          "game_index": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "opening_ref": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "result": {
+            "enum": [
+              "1-0",
+              "0-1",
+              "1/2-1/2"
+            ],
+            "type": "string"
+          },
+          "termination": {
+            "type": "string"
+          },
+          "white_role": {
+            "enum": [
+              "candidate",
+              "opponent"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "game_index",
+          "white_role",
+          "black_role",
+          "result",
+          "opening_ref"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "pgn_ref": {
+      "format": "relative-neutral-path",
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "games",
+    "claimed_wins",
+    "claimed_losses",
+    "claimed_draws",
+    "engine_stdout_log_ref",
+    "pgn_ref"
+  ],
+  "type": "object"
+}

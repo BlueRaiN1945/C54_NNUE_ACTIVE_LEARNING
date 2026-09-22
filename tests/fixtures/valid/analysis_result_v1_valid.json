@@ -1,0 +1,34 @@
+{
+  "analyzed_at": "2026-09-22T14:00:00Z",
+  "analyzer_version": "fixture-analyzer-0",
+  "elo_estimate": {
+    "ci_high": 29.6,
+    "ci_low": -5.0,
+    "value": 12.3
+  },
+  "recomputed_wdl": {
+    "decisive_games": 1,
+    "draws": 1,
+    "losses": 0,
+    "score": 0.75,
+    "wins": 1
+  },
+  "regression_subtest": {
+    "ci_high": 29.6,
+    "ci_low": -5.0,
+    "flagged": false,
+    "tested": true
+  },
+  "run_id": "AUDIT_V0011__TEACHER_V0__run001",
+  "schema_version": "v1",
+  "sprt_result": {
+    "alpha": 0.05,
+    "beta": 0.05,
+    "elo0": 0,
+    "elo1": 5,
+    "games_played": 2,
+    "max_games": 4000,
+    "outcome": "CAP_REACHED"
+  },
+  "verdict": "INCONCLUSIVE"
+}

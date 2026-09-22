@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actual_cli_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "actual_concurrency": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "actual_engine_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "actual_hash_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "actual_opening_suite_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "actual_seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "actual_threads": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "actual_time_control": {
+      "type": "object"
+    },
+    "actual_uci_options": {
+      "type": "object"
+    },
+    "executed_at_utc": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "executed_by": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "host_identity_label": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "actual_engine_sha256",
+    "actual_cli_sha256",
+    "actual_uci_options",
+    "actual_time_control",
+    "actual_threads",
+    "actual_hash_mb",
+    "actual_concurrency",
+    "actual_seed",
+    "actual_opening_suite_sha256",
+    "host_identity_label",
+    "executed_at_utc",
+    "executed_by"
+  ],
+  "type": "object"
+}

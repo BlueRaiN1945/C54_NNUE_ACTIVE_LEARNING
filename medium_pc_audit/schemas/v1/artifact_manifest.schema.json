@@ -1,0 +1,80 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "artifact_type": {
+      "enum": [
+        "teacher_anchor",
+        "champion_v1_anchor",
+        "audit_champion",
+        "opening_suite",
+        "match_config",
+        "results_package"
+      ],
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "format": "relative-neutral-path",
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "format": "sha256-hex",
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "imported_at": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "imported_by": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "sealed": {
+      "type": "boolean"
+    },
+    "source_description": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_type",
+    "files",
+    "source_description",
+    "imported_at",
+    "imported_by",
+    "sealed"
+  ],
+  "type": "object"
+}

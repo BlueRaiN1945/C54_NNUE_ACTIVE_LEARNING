@@ -1,0 +1,26 @@
+{
+  "claimed_draws": 1,
+  "claimed_losses": 0,
+  "claimed_wins": 1,
+  "engine_stdout_log_ref": "logs/match.log",
+  "games": [
+    {
+      "black_role": "opponent",
+      "game_index": 1,
+      "opening_ref": "opening_0001",
+      "result": "invalid-result",
+      "termination": "normal",
+      "white_role": "candidate"
+    },
+    {
+      "black_role": "candidate",
+      "game_index": 2,
+      "opening_ref": "opening_0001",
+      "result": "1/2-1/2",
+      "white_role": "opponent"
+    }
+  ],
+  "pgn_ref": "games/games.pgn",
+  "run_id": "AUDIT_V0011__TEACHER_V0__run001",
+  "schema_version": "v1"
+}

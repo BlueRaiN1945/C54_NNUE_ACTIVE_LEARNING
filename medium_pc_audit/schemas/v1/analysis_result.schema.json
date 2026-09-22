@@ -1,0 +1,161 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analyzed_at": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "analyzer_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "elo_estimate": {
+      "additionalProperties": false,
+      "properties": {
+        "ci_high": {
+          "type": "number"
+        },
+        "ci_low": {
+          "type": "number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "ci_low",
+        "ci_high"
+      ],
+      "type": "object"
+    },
+    "recomputed_wdl": {
+      "additionalProperties": false,
+      "properties": {
+        "decisive_games": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "draws": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "losses": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "score": {
+          "type": "number"
+        },
+        "wins": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "wins",
+        "losses",
+        "draws",
+        "decisive_games",
+        "score"
+      ],
+      "type": "object"
+    },
+    "regression_subtest": {
+      "additionalProperties": false,
+      "properties": {
+        "ci_high": {
+          "type": "number"
+        },
+        "ci_low": {
+          "type": "number"
+        },
+        "flagged": {
+          "type": "boolean"
+        },
+        "tested": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "tested",
+        "flagged"
+      ],
+      "type": "object"
+    },
+    "run_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "sprt_result": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "beta": {
+          "type": "number"
+        },
+        "elo0": {
+          "type": "number"
+        },
+        "elo1": {
+          "type": "number"
+        },
+        "games_played": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_games": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "outcome": {
+          "enum": [
+            "H1_ACCEPTED",
+            "H0_ACCEPTED",
+            "CAP_REACHED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "elo0",
+        "elo1",
+        "alpha",
+        "beta",
+        "max_games",
+        "games_played",
+        "outcome"
+      ],
+      "type": "object"
+    },
+    "verdict": {
+      "enum": [
+        "SUPPORTED_PROGRESS",
+        "PROGRESS_NOT_SUPPORTED",
+        "INCONCLUSIVE"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "analyzer_version",
+    "analyzed_at",
+    "recomputed_wdl",
+    "sprt_result",
+    "elo_estimate",
+    "verdict",
+    "regression_subtest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "analysis_result_ref": "/absolute/analysis/path.json",
+  "audit_id": "AUDIT_V0011",
+  "candidate_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "ledger_row_id": "LEDGER_0000001",
+  "logged_at": "2026-09-22T14:05:00Z",
+  "matchup_key": "AUDIT_V0011__TEACHER_V0",
+  "opponent_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+  "run_id": "AUDIT_V0011__TEACHER_V0__run001",
+  "schema_version": "v1",
+  "supersedes": null,
+  "verdict": "INCONCLUSIVE"
+}

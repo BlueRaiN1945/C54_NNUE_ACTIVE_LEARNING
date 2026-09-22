@@ -1,0 +1,15 @@
+{
+  "artifact_id": "FIXTURE_TEACHER_V0",
+  "artifact_type": "teacher_anchor",
+  "files": [
+    {
+      "path": "nn-fixture-teacher.nnue",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "size_bytes": 1024
+    }
+  ],
+  "imported_at": "2026-09-22T12:00:00Z",
+  "imported_by": "fixture-author",
+  "schema_version": "v1",
+  "source_description": "Synthetic fixture, not a real artifact."
+}

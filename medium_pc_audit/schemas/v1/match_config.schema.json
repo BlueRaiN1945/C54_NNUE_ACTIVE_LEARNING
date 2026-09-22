@@ -1,0 +1,214 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "audit_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "format": "sha256-hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "cli": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_sha256": {
+          "format": "sha256-hex",
+          "type": "string"
+        },
+        "pinned_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "pinned_id",
+        "expected_sha256"
+      ],
+      "type": "object"
+    },
+    "concurrency": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "config_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "created_by": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "engine": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_sha256": {
+          "format": "sha256-hex",
+          "type": "string"
+        },
+        "pinned_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "pinned_id",
+        "expected_sha256"
+      ],
+      "type": "object"
+    },
+    "hash_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "identity_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "matchup_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "matchup_type": {
+      "enum": [
+        "vs_teacher",
+        "vs_champion_v1",
+        "vs_prev_audit_champion"
+      ],
+      "type": "string"
+    },
+    "opening_suite": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "format": "sha256-hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "opponent": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "format": "sha256-hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "repeat": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sprt": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "beta": {
+          "type": "number"
+        },
+        "elo0": {
+          "type": "number"
+        },
+        "elo1": {
+          "type": "number"
+        },
+        "max_games": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "elo0",
+        "elo1",
+        "alpha",
+        "beta",
+        "max_games"
+      ],
+      "type": "object"
+    },
+    "threads": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "time_control": {
+      "type": "object"
+    },
+    "uci_options": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "config_id",
+    "audit_id",
+    "matchup_key",
+    "matchup_type",
+    "candidate",
+    "opponent",
+    "engine",
+    "cli",
+    "uci_options",
+    "time_control",
+    "threads",
+    "hash_mb",
+    "concurrency",
+    "opening_suite",
+    "repeat",
+    "seed",
+    "sprt",
+    "created_at",
+    "created_by",
+    "identity_sha256"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "actual_cli_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+  "actual_concurrency": 8,
+  "actual_engine_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+  "actual_hash_mb": 64,
+  "actual_opening_suite_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+  "actual_seed": 12345,
+  "actual_threads": "one",
+  "actual_time_control": {
+    "nodes": 50000
+  },
+  "actual_uci_options": {
+    "Hash": 64,
+    "Threads": 1
+  },
+  "executed_at_utc": "2026-09-22T13:00:00Z",
+  "executed_by": "fixture-author",
+  "host_identity_label": "fixture-execution-host",
+  "run_id": "AUDIT_V0011__TEACHER_V0__run001",
+  "schema_version": "v1"
+}

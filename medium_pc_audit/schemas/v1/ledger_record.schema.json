@@ -1,0 +1,76 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analysis_result_ref": {
+      "format": "relative-neutral-path",
+      "minLength": 1,
+      "type": "string"
+    },
+    "audit_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "candidate_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "ledger_row_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "logged_at": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "matchup_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "opponent_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verdict": {
+      "enum": [
+        "SUPPORTED_PROGRESS",
+        "PROGRESS_NOT_SUPPORTED",
+        "INCONCLUSIVE"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "ledger_row_id",
+    "run_id",
+    "matchup_key",
+    "audit_id",
+    "candidate_sha256",
+    "opponent_sha256",
+    "analysis_result_ref",
+    "verdict",
+    "logged_at",
+    "supersedes"
+  ],
+  "type": "object"
+}
