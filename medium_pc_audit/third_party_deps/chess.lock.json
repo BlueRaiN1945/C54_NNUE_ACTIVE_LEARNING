@@ -1,0 +1,15 @@
+{
+  "package": "chess",
+  "version": "1.11.2",
+  "obsolete_package_name": "python-chess",
+  "obsolete_package_name_note": "'python-chess' was the old PyPI project name for this library; it is obsolete and must not be used. The current, correct PyPI package name is 'chess'.",
+  "source": "pypi",
+  "dependency_boundary": "Only medium_pc_audit/pgn_parse.py and its tests (tests/test_pgn_parse.py, tests/fixtures/synthetic_pgn.py) may import chess. Phase 0-2 modules (medium_pc_audit/identity.py, medium_pc_audit/paths.py, medium_pc_audit/artifact_import.py, medium_pc_audit/config_gen.py, medium_pc_audit/schemas/) remain stdlib-only and unmodified.",
+  "sdist": {
+    "filename": "chess-1.11.2.tar.gz",
+    "sha256": "a8b43e5678fdb3000695bdaa573117ad683761e5ca38e591c4826eba6d25bb39"
+  },
+  "verification_method": "pip download chess==1.11.2 --no-binary :all: --no-deps -d . ; sha256sum of the resulting sdist tarball",
+  "verified_at": "2026-09-23",
+  "verified_by": "medium_pc_audit Phase 3 implementation session"
+}
