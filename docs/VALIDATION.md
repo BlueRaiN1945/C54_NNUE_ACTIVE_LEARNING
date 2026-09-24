@@ -1,11 +1,14 @@
-# V0 Validation Record
+# Active-Learning Subsystem Validation Record
 
 Date: 2026-09-20
 
-## Parser bug discovered in V0_TRAIN25_001
+This record documents validation of the historical V0 active-learning/mining subsystem now incorporated into **Stockfish NNUE Domain Adaptation & Knowledge Transfer**.
 
-The original MultiPV parser independently selected the last exact line for
-each rank. This could mix ranks from different search depths/iterations.
+The V0 run identifiers are preserved exactly because they are part of the evidence trail. Canonical project terminology is defined in `NOMENCLATURE.md`.
+
+## Parser defect discovered in V0_TRAIN25_001
+
+The original MultiPV parser independently selected the last exact line for each rank. This could mix ranks from different search depths or iterations.
 
 Observed consequences in `V0_TRAIN25_001`:
 
@@ -14,12 +17,9 @@ Observed consequences in `V0_TRAIN25_001`:
 - 1 candidate UCI bestmove was missing from teacher constrained probes;
 - 1 final UCI bestmove / stored rank-1 mismatch was observed.
 
-The final UCI bestmove/rank-1 mismatch itself is not considered an error.
-The final UCI decision may come from a newer incomplete iteration while the
-stored MultiPV evidence intentionally comes from the last complete coherent
-snapshot.
+The final UCI bestmove/rank-1 mismatch itself is not considered an error. The final UCI decision may come from a newer incomplete iteration while the stored MultiPV evidence intentionally comes from the last complete coherent snapshot.
 
-## Fix
+## Corrective change
 
 The parser now prefers the last complete MultiPV snapshot where:
 
@@ -31,15 +31,15 @@ Final UCI `bestmove` remains a separate observation.
 
 Teacher probe construction is now:
 
-candidate UCI bestmove
-UNION coherent candidate MultiPV moves
+candidate UCI bestmove  
+UNION coherent candidate MultiPV moves  
 UNION teacher UCI bestmove
 
 with deterministic ordering and duplicate removal.
 
-## V0_TRAIN25_002 result
+## V0_TRAIN25_002 validation result
 
-The exact same frozen 25-position TRAIN manifest was rerun.
+The exact same frozen 25-position training manifest was rerun.
 
 Raw audit:
 
@@ -95,9 +95,13 @@ BigPC with validated external artifacts:
 
 Portable CLI smoke test:
 
-- one frozen TRAIN position mined into a temporary SQLite DB;
+- one frozen training position mined into a temporary SQLite database;
 - metrics V1 written successfully;
 - integrity check: ok;
 - foreign-key errors: 0;
 - runs: 1;
 - metrics rows: 1.
+
+## Interpretation
+
+This record validates the V0 mining/evidence subsystem. It does not by itself establish playing-strength improvement, generalization, or successful domain transfer. Those claims require the separate training and match-evaluation protocols of the broader research program.
