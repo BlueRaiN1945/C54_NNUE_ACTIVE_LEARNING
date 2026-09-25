@@ -1,0 +1,66 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "cli_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "created_utc": {
+      "format": "utc-iso8601",
+      "type": "string"
+    },
+    "engine_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "extraction_skip_first_n_plies": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "opening_suite_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "position_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rescore_nodes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "seed_sha256": {
+      "format": "sha256-hex",
+      "type": "string"
+    },
+    "self_play_games": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "self_play_nodes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "trainer_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_sha256",
+    "seed_sha256",
+    "opening_suite_sha256"
+  ],
+  "type": "object"
+}

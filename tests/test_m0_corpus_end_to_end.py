@@ -88,6 +88,7 @@ class M0CorpusEndToEndTests(unittest.TestCase):
             artifact_sha256 = hashlib.sha256(tsv_path.read_bytes()).hexdigest()
 
             generation_record = {
+                "schema_version": "v1",
                 "artifact_sha256": artifact_sha256,
                 "seed_sha256": SEED_SHA256,
                 "engine_sha256": "1" * 64,
@@ -122,8 +123,10 @@ class M0CorpusEndToEndTests(unittest.TestCase):
             artifact_sha256 = hashlib.sha256(tsv_path.read_bytes()).hexdigest()
 
             generation_record = {
+                "schema_version": "v1",
                 "artifact_sha256": artifact_sha256,
                 "seed_sha256": SEED_SHA256,
+                "opening_suite_sha256": "3" * 64,
                 "created_utc": "2026-09-25T00:00:00Z",
             }
 

@@ -4,7 +4,7 @@
   "obsolete_package_name": "python-chess",
   "obsolete_package_name_note": "'python-chess' was the old PyPI project name for this library; it is obsolete and must not be used. The current, correct PyPI package name is 'chess'.",
   "source": "pypi",
-  "dependency_boundary": "Only medium_pc_audit/pgn_parse.py and medium_pc_audit/position_extract.py may import the third-party `chess` package. Their corresponding tests may also import it. The remaining medium_pc_audit control, provenance, analysis, and evidence modules remain stdlib-only.",
+  "dependency_boundary": "Only medium_pc_audit/pgn_parse.py, medium_pc_audit/position_extract.py, and medium_pc_audit/clean_room_openings.py may import the third-party `chess` package. Their corresponding tests may also import it. The remaining medium_pc_audit control, provenance, analysis, and evidence modules remain stdlib-only.",
   "sdist": {
     "filename": "chess-1.11.2.tar.gz",
     "sha256": "a8b43e5678fdb3000695bdaa573117ad683761e5ca38e591c4826eba6d25bb39"

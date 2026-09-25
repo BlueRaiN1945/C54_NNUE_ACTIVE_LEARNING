@@ -180,6 +180,7 @@ _SCHEMA_FILENAMES = {
     "raw_result": "raw_result.schema.json",
     "analysis_result": "analysis_result.schema.json",
     "ledger_record": "ledger_record.schema.json",
+    "corpus_generation_record": "corpus_generation_record.schema.json",
 }
 
 _schema_cache: dict = {}

@@ -27,6 +27,7 @@ def write_artifact(directory, content=b"synthetic modern corpus bytes"):
 
 def base_record(artifact_sha256, **overrides):
     record = {
+        "schema_version": "v1",
         "artifact_sha256": artifact_sha256,
         "seed_sha256": SEED_SHA256,
         "engine_sha256": "1" * 64,

@@ -18,7 +18,8 @@ from appropriate sources and complying with their respective licenses.
 ## chess
 
 The modern research/control suite uses the PyPI package `chess` for PGN
-parsing and deterministic legal-move/position extraction.
+parsing, deterministic legal-move/position extraction, and clean-room
+opening-artifact generation.
 
 The repository pins version `1.11.2`. The expected source-distribution
 filename and SHA-256 are recorded in

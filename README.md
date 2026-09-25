@@ -132,7 +132,8 @@ Historical V0 identifiers remain unchanged so that validation reports, hashes, a
 For the repository's offline control, provenance, analysis, and test framework:
 
 - Python 3.12 (the CI reference interpreter);
-- `chess==1.11.2` for PGN parsing and deterministic position extraction;
+- `chess==1.11.2` for PGN parsing, deterministic position extraction, and
+  clean-room opening-artifact generation;
 - SQLite support from Python's standard library.
 
 The exact `chess` package version and source-artifact SHA-256 are recorded in

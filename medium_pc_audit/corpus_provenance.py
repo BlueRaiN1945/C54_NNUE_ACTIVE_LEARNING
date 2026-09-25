@@ -43,6 +43,7 @@ from medium_pc_audit.experiment import (
     EvidenceRef,
 )
 from medium_pc_audit.frozen_seed import SEED_SHA256
+from medium_pc_audit.schemas import registry
 
 REQUIRED_RECORD_FIELDS = ("artifact_sha256", "seed_sha256")
 
@@ -106,6 +107,14 @@ def build_corpus_data_source(
     """
 
     _require_dict(generation_record, name="generation_record")
+
+    try:
+        registry.validate("corpus_generation_record", "v1", generation_record)
+    except registry.SchemaValidationError as exc:
+        raise CorpusProvenanceError(
+            f"generation_record failed schema validation: {exc}"
+        ) from exc
+
     _require_field(generation_record, "artifact_sha256")
     _validate_seed_anchor(generation_record)
 

@@ -5,10 +5,13 @@ on the execution host (step 1: pinned mainline Stockfish + pinned c-chess-cli,
 sequential draw from a non-heritage opening book) and emits one FEN per ply,
 in game order, for step 3 (rescoring on the execution host).
 
-Dependency boundary: this is the SECOND and ONLY OTHER module in
-medium_pc_audit allowed to import the third-party `chess` package, alongside
-medium_pc_audit.pgn_parse -- see that module's docstring for why the two are
-deliberately not merged. This module requires full, legal movetext: unlike
+Dependency boundary: this is the SECOND of three modules in medium_pc_audit
+allowed to import the third-party `chess` package, alongside
+medium_pc_audit.pgn_parse and medium_pc_audit.clean_room_openings (which
+generates a from-first-principles opening artifact rather than parsing
+PGN, so it is not merged into either of these) -- see pgn_parse's docstring
+for why parsing and extraction are themselves kept separate. This module
+requires full, legal movetext: unlike
 pgn_parse's audit parsing (which must tolerate any real-world engine PGN
 without raising), a self-play PGN with an illegal or unparseable move is a
 genuine defect in the generation pipeline that must fail loudly, not be
