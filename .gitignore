@@ -1,4 +1,42 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 .pytest_cache/
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Research databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Neural-network / training artifacts
+*.nnue
+*.binpack
+*.pt
+*.pth
+*.ckpt
+
+# Logs / generated output
+*.log
+*.tmp
+
+# Local/private validation material
+private_validation/
+
+# Local external artifacts
+artifacts/
+engines/
+networks/
+
+# Local audit workspace
 C54_AUDIT/
