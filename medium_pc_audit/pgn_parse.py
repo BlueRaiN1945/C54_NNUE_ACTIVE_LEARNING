@@ -3,11 +3,19 @@
 Builds on the frozen Phase 0 schemas (medium_pc_audit.schemas.registry).
 Phase 0, Phase 1, and Phase 2 modules are not modified here.
 
-Dependency boundary (locked): this is the ONLY module in medium_pc_audit
+Dependency boundary (locked, with one documented exception): this module is
 allowed to import the third-party `chess` package (PyPI name 'chess', the
 current name for what used to be distributed as 'python-chess'; pinned
 exactly, see medium_pc_audit/third_party_deps/chess.lock.json). Every other
-module in this repository remains stdlib-only.
+module in this repository remains stdlib-only, with exactly one deliberate
+second exception: medium_pc_audit.position_extract, which needs full
+movetext/move-legality parsing for M0 corpus position extraction -- a
+different concern from this module's header-only, tolerant-of-malformed-PGN
+audit parsing, and one this module's own invariants (below) rule out serving.
+The two modules must never be merged: this one must keep skipping movetext
+(robustness to any engine's real-world PGN quirks matters more here than
+position fidelity), while position_extract must keep requiring fully legal,
+parseable movetext (position fidelity matters more there than tolerance).
 
 This module parses real c-chess-cli PGN output and independently
 reconstructs candidate-perspective win/loss/draw results. It never trusts
