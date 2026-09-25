@@ -1,14 +1,11 @@
-"""Scripts designed to run ON the execution host (BigPC), never on Medium-PC.
+"""Engine-facing scripts for explicit execution-host research steps.
 
-This package is deliberately outside medium_pc_audit: that package's own
-charter states it "does not run chess engines, does not train NNUE networks,
-and does not install/build Stockfish, c-chess-cli, or Docker" (README.md).
-Anything that spawns an engine subprocess belongs here instead, kept visibly
-separate so the boundary is structural, not just a convention to remember.
+This package is intentionally separate from medium_pc_audit. The
+medium_pc_audit package defines deterministic control, analysis, provenance,
+validation, and evidence contracts; subprocess-based engine work belongs here
+so the boundary is structural rather than an informal convention.
 
-Nothing in this package is executed by this repository's tests or by any
-Medium-PC control-plane code. Only pure, engine-free functions (parsing,
-validation) are imported and unit-tested from tests/. Deploying a script from
-this package to BigPC and running it there requires separate, explicit
-authorization -- writing or testing the file here does not constitute that.
+Importing this package does not start engines. Tests may import pure parsing
+or validation helpers, but deploying and running an engine-facing script is a
+separate, explicit execution step on the chosen execution host.
 """

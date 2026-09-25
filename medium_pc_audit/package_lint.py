@@ -17,8 +17,8 @@ the same checks and writes nothing, anywhere.
 The `actual_*` fields in ExecutionManifestV1 must be observed on the execution
 host; anything that filled them in from the MatchConfig would make
 `verify_execution_manifest()` compare a config against a copy of itself and
-pass trivially. See EXECUTION_PACKAGE_CONTRACT.md §0. Medium-PC verifies; the
-execution host attests.
+pass trivially. The control/evidence side independently verifies the package;
+the execution host records the observations it actually produced.
 
 All real checking is delegated to the already-committed implementations
 (verify_transport_integrity, verify_artifact_binding, classify_result_bundle)
@@ -306,7 +306,7 @@ def lint_execution_package(package_dir, *, match_config: dict) -> dict:
                 detail=classification.get("detail", reason),
                 fix=_FIX_HINTS.get(
                     reason,
-                    "See EXECUTION_PACKAGE_CONTRACT.md for this requirement.",
+                    "Inspect the classification detail and package validation rules for this condition.",
                 ),
             )
         )

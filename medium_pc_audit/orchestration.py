@@ -283,8 +283,8 @@ def build_match_plan(
                 description=(
                     f"arm {arm.arm_id!r}: emit execution_manifest.json, "
                     "raw_result.json, artifact_binding.json and SHA256SUMS.txt "
-                    "per EXECUTION_PACKAGE_CONTRACT.md, recording OBSERVED "
-                    "values on the execution host"
+                    "recording OBSERVED values on the execution host "
+                    "for later evidence verification"
                 ),
                 command=(
                     "<execution-host packager>",

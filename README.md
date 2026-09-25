@@ -64,6 +64,23 @@ The project distinguishes between:
 
 Where evidence is incomplete, the repository records the uncertainty rather than silently upgrading a declaration into a fact.
 
+## Architecture and execution boundary
+
+The repository separates control/evidence logic from engine-facing execution.
+
+- `medium_pc_audit/` contains deterministic experiment contracts, provenance,
+  validation, artifact handling, statistical analysis, and evidence tooling.
+- `execution_host/` contains scripts intended for explicit execution-host use
+  when an experiment requires an engine subprocess or other host-observed work.
+- `medium_pc_audit/orchestration.py` describes authorized work as data; it does
+  not execute engines, training, matches, or network operations itself.
+- Large engines, networks, corpora, checkpoints, databases, and match outputs
+  remain external artifacts and are bound to research records through hashes
+  and provenance evidence.
+
+This separation keeps planning, authorization, execution, and evidence
+verification independently inspectable.
+
 ## Historical terminology
 
 Earlier work used compact internal identifiers including `C54`, `OLA`, `GEN2`, `V80`, `M0`, and `UHO`. They are retained where required for artifact identity, compatibility, and provenance, but they are no longer the primary human-facing vocabulary.
@@ -79,7 +96,7 @@ In particular:
 - `M0` identifies the Modern Baseline control.
 - `UHO` is retained where used by opening-test tooling and historical records.
 
-## Current published subsystem
+## Historical V0 subsystem
 
 The repository originated as a validated active-learning/mining subsystem. That subsystem remains part of the wider research framework and currently provides:
 
@@ -112,28 +129,45 @@ Historical V0 identifiers remain unchanged so that validation reports, hashes, a
 
 ## Requirements
 
-For the published V0 mining subsystem:
+For the repository's offline control, provenance, analysis, and test framework:
 
-- Python 3.12 or compatible Python 3.x;
-- SQLite support in Python;
-- a compatible Stockfish executable;
-- an official/reference NNUE network;
-- a candidate NNUE network.
+- Python 3.12 (the CI reference interpreter);
+- `chess==1.11.2` for PGN parsing and deterministic position extraction;
+- SQLite support from Python's standard library.
 
-The published V0 Python code uses only the Python standard library.
+The exact `chess` package version and source-artifact SHA-256 are recorded in
+`medium_pc_audit/third_party_deps/chess.lock.json`. The historical
+`mining_v0/` subsystem itself remains standard-library-only.
 
-Stockfish binaries, NNUE networks, large corpora, databases, and training checkpoints are external research artifacts and are not included in this repository.
+Real engine, mining, training, or execution-host runs additionally require the
+relevant pinned Stockfish executable, NNUE networks, opening material, and
+protocol-specific external tools. Those large artifacts are intentionally not
+stored in this repository.
 
-## Offline tests
+## Test suites
 
-From the repository root:
+Install the pinned Python dependency:
+
+~~~bash
+python -m pip install chess==1.11.2
+~~~
+
+Run the modern research/control suite from the repository root:
+
+~~~bash
+python -m unittest discover -s tests -p 'test_*.py' -v
+~~~
+
+Run the historical V0 suite separately:
 
 ~~~bash
 cd mining_v0
 python -m unittest discover -v -p 'test_*.py'
 ~~~
 
-Without external Stockfish artifacts, real-engine integration tests are skipped.
+Real-engine V0 integration tests skip automatically when their external
+Stockfish/network artifacts are not configured. GitHub CI runs both offline
+test suites.
 
 ## Real integration tests
 
@@ -180,21 +214,31 @@ python mining_v0/metrics.py \
 
 ## Repository layout
 
-- `mining_v0/` — validated active-learning miner, parser, SQLite writer, metrics, and tests
-- `schema/` — evidence-database schema
-- `docs/` — terminology, validation, reproducibility, and historical evidence
-- `.github/workflows/` — offline CI
-- `private_validation/` — local-only validation material; ignored by Git
+- `medium_pc_audit/` - experiment contracts, provenance, artifact handling,
+  preflight gates, splitting, match analysis, result ingestion, and research
+  evidence utilities
+- `execution_host/` - explicitly invoked engine-facing execution-host scripts
+- `tests/` - modern research/control test suite
+- `mining_v0/` - validated historical active-learning/mining subsystem
+- `schema/` - historical V0 mining/evidence database schema
+- `docs/` - methodology, nomenclature, validation, reproducibility, and
+  evidence records
+- `.github/workflows/` - continuous-integration configuration
+- `private_validation/` - local-only validation material; ignored by Git
 
 ## Validation and evidence
 
 See:
 
+- `docs/MODERN_BASELINE_TRAINING_CONTRACT.md`
 - `docs/NOMENCLATURE.md`
 - `docs/VALIDATION.md`
 - `docs/REPRODUCIBILITY.md`
 - `docs/V0_TRAIN25_001_vs_002_REPORT.txt`
 - `docs/VALIDATED_V0_BASELINE.sha256`
+
+Historical hash manifests and validation records are retained for provenance;
+they are not silently regenerated when later documentation evolves.
 
 ## Scope
 

@@ -1,5 +1,5 @@
-"""Deterministic identity and canonicalization helpers for the C54 Medium-PC audit
-control plane.
+"""Deterministic identity and canonicalization helpers for the research evidence
+plane.
 
 All functions here are pure: no filesystem access, no network access, no wall-clock
 reads, and no dependence on OS-specific path formatting. Determinism is the whole

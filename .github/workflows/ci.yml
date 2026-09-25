@@ -17,18 +17,30 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Syntax check
-        run: python -m py_compile mining_v0/*.py
+      - name: Install verified chess dependency
+        shell: bash
+        run: |
+          mkdir -p .ci-deps
+          CHESS_SDIST=".ci-deps/chess-1.11.2.tar.gz"
+          CHESS_SHA256="a8b43e5678fdb3000695bdaa573117ad683761e5ca38e591c4826eba6d25bb39"
+          python -m pip download chess==1.11.2 --no-binary=:all: --no-deps -d .ci-deps
+          echo "$CHESS_SHA256  $CHESS_SDIST" | sha256sum -c -
+          python -m pip install --no-deps "$CHESS_SDIST"
 
-      - name: Unit and offline integration tests
+      - name: Syntax check
+        run: python -m compileall -q medium_pc_audit execution_host mining_v0
+
+      - name: Modern research suite
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Historical V0 suite
         working-directory: mining_v0
         run: python -m unittest discover -v -p 'test_*.py'
 
-      - name: Verify no machine-specific paths
+      - name: Verify no machine-specific paths in historical V0 code
         shell: bash
         run: |
-          if grep -RInE '/data/|/home/|/root/|[A-Za-z]:\\\\' \
-              --include='*.py' mining_v0; then
+          if grep -RInE '/data/|/home/|/root/|[A-Za-z]:\\' --include='*.py' mining_v0; then
             echo "Machine-specific path found"
             exit 1
           fi

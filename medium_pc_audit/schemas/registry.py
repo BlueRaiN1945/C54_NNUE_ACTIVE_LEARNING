@@ -1,5 +1,5 @@
 """Minimal, explicit, stdlib-only JSON-Schema-subset validator + registry for the
-C54 Medium-PC audit control plane.
+NNUE domain-adaptation research evidence plane.
 
 Design constraint (locked): Phase 0 must not depend on the `jsonschema` PyPI package,
 so this module implements exactly the subset of JSON Schema vocabulary the six v1

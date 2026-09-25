@@ -1,5 +1,5 @@
-"""Artifact import / immutable artifact sealing for the C54 Medium-PC audit
-control plane (Phase 1).
+"""Artifact import / immutable artifact sealing for the research evidence
+plane (Phase 1).
 
 Builds on the frozen Phase 0 schemas (medium_pc_audit.schemas.registry) and
 the Phase 1 OS-neutral path helpers. This module never modifies Phase 0

@@ -270,8 +270,9 @@ class VerifyOverlapTests(unittest.TestCase):
 class FenNormalizationEquivalenceTests(unittest.TestCase):
     """split.normalize_fen_key must agree with pgn_parse's implementation.
 
-    They are separate implementations on purpose: pgn_parse owns the only
-    third-party dependency in this repository, so split.py cannot import it.
+    They are separate implementations on purpose: pgn_parse is one of the two
+    production modules under medium_pc_audit allowed to use third-party
+    `chess`; split.py deliberately remains stdlib-only.
     This guard follows the precedent of
     tests/test_phase0_neutral_path_equivalence.py.
     """

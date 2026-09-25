@@ -3,11 +3,11 @@
 Stdlib-only and deterministic: no filesystem, network, engine, training, or
 wall-clock access anywhere in this module.
 
-This module encodes, as executable guards, the locked methodology decisions
-recorded in C54_HERITAGE_TRANSFER/M0_CONTROL_PROPOSAL.md and
-PHASE1_5_PRECONDITIONS.md. Three of those decisions are enforced here rather
-than left to convention, because each has already been violated in practice
-by the existing BigPC lines:
+This module encodes, as executable guards, methodology decisions reflected
+in the Modern Baseline training contract and the repository's preflight
+contracts. Three of those decisions are enforced here rather than left to
+convention, because each has already been violated in earlier experimental
+lines:
 
   - **Shared seed.** An M0 control arm and every heritage treatment arm it is
     compared against must start from a byte-identical checkpoint.

@@ -7,9 +7,9 @@ pre-existing one, so there is no pre-existing ground-truth hash to compare
 against.
 
 **The producer/consumer split, applied to data instead of match evidence.**
-This is the same split EXECUTION_PACKAGE_CONTRACT.md establishes for match
-results: the execution host (BigPC) is the producer -- it generates the
-corpus and records its own claimed artifact_sha256 in a generation record.
+This applies the same producer/consumer separation used for match-result
+evidence: the execution host is the producer -- it generates the corpus and
+records its own claimed artifact_sha256 in a generation record.
 This module is the consumer: it independently re-hashes the actual
 transferred artifact file and treats the producer's claim as `expected`,
 never as the truth. Only an independently-recomputed hash that agrees with

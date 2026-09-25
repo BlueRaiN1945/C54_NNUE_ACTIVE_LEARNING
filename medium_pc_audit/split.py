@@ -2,8 +2,7 @@
 
 Stdlib-only and deterministic: no filesystem, network, or wall-clock access.
 
-Locked methodology this module enforces (see C54_HERITAGE_TRANSFER/
-PHASE1_5_PRECONDITIONS.md §C and OPEN_QUESTIONS.md #1):
+Locked methodology this module enforces:
 
   - **Family isolation is mandatory and fails closed.** The frozen
     methodology requires splitting by game / opening line / family boundary,
@@ -26,11 +25,12 @@ PHASE1_5_PRECONDITIONS.md §C and OPEN_QUESTIONS.md #1):
 
 **Dependency boundary:** normalize_fen_key() reimplements, in pure stdlib
 string operations, the same normalization as
-medium_pc_audit.pgn_parse.normalize_opening_ref_from_fen(). It is NOT imported
-from there because pgn_parse owns this repository's only third-party
-dependency (`chess`) and every other module stays stdlib-only. The two must
-agree exactly; tests/test_split_fen_equivalence.py is the regression guard,
-following the precedent of tests/test_phase0_neutral_path_equivalence.py.
+medium_pc_audit.pgn_parse.normalize_opening_ref_from_fen(). It is not imported
+from there because this module deliberately remains stdlib-only. The `chess`
+dependency is confined to medium_pc_audit.pgn_parse and
+medium_pc_audit.position_extract. The normalizers must agree exactly;
+tests/test_split.py contains the regression guard, following the precedent of
+tests/test_phase0_neutral_path_equivalence.py.
 """
 
 from __future__ import annotations

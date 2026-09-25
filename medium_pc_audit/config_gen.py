@@ -1,5 +1,5 @@
-"""MatchConfigV1 generation and publication for the C54 Medium-PC audit
-control plane (Phase 2).
+"""MatchConfigV1 generation and publication for the research evidence
+plane (Phase 2).
 
 Builds on the frozen Phase 0 schemas/identity helpers and the committed
 Phase 1 artifact-sealing module. Neither is modified here.

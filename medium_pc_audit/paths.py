@@ -1,4 +1,4 @@
-"""OS-neutral path helpers for the C54 Medium-PC audit control plane.
+"""OS-neutral path helpers for the research evidence plane.
 
 These conventions mirror -- but are implemented independently of -- the
 'relative-neutral-path' format checker already frozen in Phase 0's

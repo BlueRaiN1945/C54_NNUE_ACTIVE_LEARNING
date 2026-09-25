@@ -12,8 +12,7 @@ Two locked requirements are enforced here:
     has not been positively declared.
 
   - **Pair capacity and distinctness.** This addresses a concrete operational
-    trap documented in C54_HERITAGE_TRANSFER/EXECUTION_PACKAGE_CONTRACT.md
-    §6.1:
+    trap enforced by the match-result intake rules:
 
     `opening_ref` is derived from FEN fields 1-4, so two independently drawn
     occurrences of the same opening collide into a single ref. Intake

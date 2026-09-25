@@ -1,4 +1,4 @@
-"""Paired match statistics for the C54 Medium-PC audit plane.
+"""Paired match statistics for the NNUE domain-adaptation research framework.
 
 Phase 4A deliberately contains no filesystem, engine, training, wall-clock,
 or network behavior.  It consumes already-parsed game records and computes
