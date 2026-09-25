@@ -40,7 +40,7 @@ jobs:
       - name: Verify no machine-specific paths in historical V0 code
         shell: bash
         run: |
-          if grep -RInE '/data/|/home/|/root/|[A-Za-z]:\\' --include='*.py' mining_v0; then
+          if grep -RInE '/data/|/home/|/root/|(^|[^A-Za-z0-9_])[A-Za-z]:\\' --include='*.py' mining_v0; then
             echo "Machine-specific path found"
             exit 1
           fi
